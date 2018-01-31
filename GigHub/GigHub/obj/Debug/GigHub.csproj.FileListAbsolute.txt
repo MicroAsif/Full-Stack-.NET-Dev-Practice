@@ -80,3 +80,6 @@ C:\dev\Full-Stack-.NET-Dev-Practice\GigHub\GigHub\bin\Microsoft.Owin.Security.Mi
 C:\dev\Full-Stack-.NET-Dev-Practice\GigHub\GigHub\obj\Debug\GigHub.csprojResolveAssemblyReference.cache
 C:\dev\Full-Stack-.NET-Dev-Practice\GigHub\GigHub\obj\Debug\GigHub.dll
 C:\dev\Full-Stack-.NET-Dev-Practice\GigHub\GigHub\obj\Debug\GigHub.pdb
+C:\dev\Full-Stack-.NET-Dev-Practice\GigHub\GigHub\obj\Debug\GigHub.Migrations.InitialCreate.resources
+C:\dev\Full-Stack-.NET-Dev-Practice\GigHub\GigHub\obj\Debug\GigHub.csproj.GenerateResource.Cache
+C:\dev\Full-Stack-.NET-Dev-Practice\GigHub\GigHub\obj\Debug\GigHub.Migrations.initialModel.resources
