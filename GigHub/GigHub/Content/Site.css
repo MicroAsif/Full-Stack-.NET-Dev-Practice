@@ -83,3 +83,15 @@ h6,
     -ms-border-radius: 9px;
     border-radius: 9px;
 }
+
+.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
+    color: #ffffff;
+    background-color: #f11d1d4f;
+}
+.dropdown-menu {
+    box-shadow: none;
+    -webkit-box-shadow: none;
+}
+.navbar-brand {
+    font-weight: 700;
+}
