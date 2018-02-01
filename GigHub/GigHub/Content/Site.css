@@ -23,6 +23,11 @@ textarea {
     max-width: 280px;
 }
 
+span.field-validation-error {
+    color: red;
+    font-weight: bold;
+}
+
 
 /* bootstrap overwrite */
 
@@ -85,9 +90,14 @@ h6,
 }
 
 .navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
-    color: #ffffff;
     background-color: #f11d1d4f;
 }
+
+.navbar-inverse .navbar-nav > .dropdown > a .caret {
+    border-top-color: #fff;
+    border-bottom-color: #fff;
+}
+
 .dropdown-menu {
     box-shadow: none;
     -webkit-box-shadow: none;
