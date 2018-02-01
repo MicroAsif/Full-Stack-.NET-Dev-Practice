@@ -7,6 +7,8 @@ namespace GigHub.Models
     {
         public DbSet<Gig> Gigs { get; set; }
         public DbSet<Genre> Genres { get; set; }
+        public DbSet<Attendence> Attendences { get; set; }
+
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
@@ -15,6 +17,14 @@ namespace GigHub.Models
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
+        }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Attendence>().HasRequired(x=>x.Gig)
+                .WithMany()
+                .WillCascadeOnDelete(false);
+            base.OnModelCreating(modelBuilder);
         }
     }
 }

@@ -83,8 +83,8 @@ h6,
 }
 
 .btn {
-    font-size: 15px;
-    padding: 7px 20px;
+    /*font-size: 15px;
+    padding: 7px 20px;*/
     -ms-border-radius: 9px;
     border-radius: 9px;
 }
@@ -143,11 +143,14 @@ h6,
     position: absolute;
     top: 0;
     left: 70px;
+    width: 150px;
 }
 
 .gigs > li > .details .artist {
     font-weight: bold;
     display: block;
+    padding: 0px 2px 9px 0px;
+    font-size: 16px;
 }
 .gigs > li > .details .genre {
     font-size: 14px;

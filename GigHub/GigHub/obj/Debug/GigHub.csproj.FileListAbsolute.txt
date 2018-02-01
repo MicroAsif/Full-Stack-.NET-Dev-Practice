@@ -87,3 +87,10 @@ C:\dev\Full-Stack-.NET-Dev-Practice\GigHub\GigHub\obj\Debug\GigHub.Migrations.cr
 C:\dev\Full-Stack-.NET-Dev-Practice\GigHub\GigHub\obj\Debug\GigHub.Migrations.updatedGig.resources
 C:\dev\Full-Stack-.NET-Dev-Practice\GigHub\GigHub\obj\Debug\GigHub.Migrations.foreignKeyChangedForGig.resources
 C:\dev\Full-Stack-.NET-Dev-Practice\GigHub\GigHub\obj\Debug\GigHub.Migrations.addNameToUser.resources
+C:\dev\Full-Stack-.NET-Dev-Practice\GigHub\GigHub\obj\Debug\GigHub.Migrations.attendeeModelAdded.resources
+C:\dev\Full-Stack-.NET-Dev-Practice\GigHub\GigHub\bin\System.Net.Http.Formatting.dll
+C:\dev\Full-Stack-.NET-Dev-Practice\GigHub\GigHub\bin\System.Web.Http.dll
+C:\dev\Full-Stack-.NET-Dev-Practice\GigHub\GigHub\bin\System.Web.Http.WebHost.dll
+C:\dev\Full-Stack-.NET-Dev-Practice\GigHub\GigHub\bin\System.Net.Http.Formatting.xml
+C:\dev\Full-Stack-.NET-Dev-Practice\GigHub\GigHub\bin\System.Web.Http.xml
+C:\dev\Full-Stack-.NET-Dev-Practice\GigHub\GigHub\bin\System.Web.Http.WebHost.xml
