@@ -4,15 +4,15 @@
 }
 
 <h2>Add a Gig</h2>
-
-<form>
+@using (Html.BeginForm("Create", "Gigs"))
+{
     <div class="form-group">
         @Html.LabelFor(m => m.Venue)
         @Html.TextBoxFor(m => m.Venue, new {@class = "form-control"})
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.Date)
-        @Html.TextBoxFor(m => m.Venue, new { @class = "form-control" })
+        @Html.TextBoxFor(m => m.Date, new { @class = "form-control" })
     </div>
     
     <div class="form-group">
@@ -26,5 +26,5 @@
     </div>
     <button type="submit" class="btn btn-success" >Save</button>
 
-</form>
+}
 
