@@ -1,5 +1,5 @@
 ﻿body {
-    padding-top: 50px;
+    padding-top: 90px;
     padding-bottom: 20px;
 }
 
@@ -104,4 +104,51 @@ h6,
 }
 .navbar-brand {
     font-weight: 700;
+}
+
+
+/*page style */
+.gigs {
+    list-style: none; 
+}
+
+.gigs > li {
+    position: relative;
+    margin-bottom: 30px; 
+}
+
+.gigs > li > .date {
+    background-color: red;
+    text-align: center;
+    color: #FFF;
+    width: 60px;
+    -ms-border-radius: 8px;
+    border-radius: 8px;
+}
+
+.gigs > li > .date .month {
+
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 2px 6px;
+}
+.gigs > li > .date .day {
+    background: #F7F7f7;
+    color: #d3d3d3;
+    font-size: 18px;
+    padding: 6px 12px;
+
+}
+.gigs > li > .details {
+    position: absolute;
+    top: 0;
+    left: 70px;
+}
+
+.gigs > li > .details .artist {
+    font-weight: bold;
+    display: block;
+}
+.gigs > li > .details .genre {
+    font-size: 14px;
 }
