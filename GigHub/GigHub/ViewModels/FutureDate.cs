@@ -27,7 +27,7 @@ namespace GigHub.ViewModels
             bool isValid = DateTime.TryParseExact(Convert.ToString(value),
                 "HH:mm", CultureInfo.CurrentCulture,
                 DateTimeStyles.None, out dateTime);
-            return (isValid && dateTime > DateTime.Now);
+            return (isValid);
         }
     }
 }
