@@ -72,7 +72,7 @@ h6,
 }
 
 .form-control {
-    padding: 20px 15px;
+    height: 37px;
     -ms-border-radius: 9px;
     border-radius: 9px;
 }
@@ -150,11 +150,19 @@ h6,
 }
 
 .gigs > li > .details .artist {
-    font-weight: bold;
+    font-weight: 700;
     display: block;
     padding: 0px 2px 9px 0px;
-    font-size: 16px;
+    font-size: 15px;
 }
 .gigs > li > .details .genre {
     font-size: 14px;
+}
+
+.gigs > li .actions {
+    font-size: 13px;
+    display: none;
+}
+.gigs > li :hover .actions {
+    display: block;
 }

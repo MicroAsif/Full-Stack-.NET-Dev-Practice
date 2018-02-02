@@ -18,6 +18,9 @@
                 <span class="artist"> @g.Venue
                 </span>
                 <span class="genre">@g.Genre.Name</span>
+                <div class="actions">
+                    <a href="@Url.Action("Edit", "Gigs", new { gidId = g.Id})">Edit</a>
+                </div>
             </div>
         </li>
     }
