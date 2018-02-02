@@ -94,3 +94,4 @@ C:\dev\Full-Stack-.NET-Dev-Practice\GigHub\GigHub\bin\System.Web.Http.WebHost.dl
 C:\dev\Full-Stack-.NET-Dev-Practice\GigHub\GigHub\bin\System.Net.Http.Formatting.xml
 C:\dev\Full-Stack-.NET-Dev-Practice\GigHub\GigHub\bin\System.Web.Http.xml
 C:\dev\Full-Stack-.NET-Dev-Practice\GigHub\GigHub\bin\System.Web.Http.WebHost.xml
+C:\dev\Full-Stack-.NET-Dev-Practice\GigHub\GigHub\obj\Debug\GigHub.Migrations.AddFollowing.resources

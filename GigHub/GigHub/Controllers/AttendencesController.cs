@@ -10,6 +10,7 @@ using Microsoft.AspNet.Identity;
 
 namespace GigHub.Controllers
 {
+
     public class AttendencesController : ApiController
     {
         private ApplicationDbContext _context; 

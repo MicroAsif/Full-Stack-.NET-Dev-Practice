@@ -1,0 +1,67 @@
+﻿
+@model GigHub.ViewModels.GigsViewModel
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<h3>@Model.Heading</h3>
+<ul class="gigs voffset">
+    @foreach (var g in Model.UpcomingGigs)
+    {
+        
+        <li>
+            <div class="date">
+                <div class="month"> @g.DateTime.ToString("MMM")</div>
+                <div class="day"> @g.DateTime.ToString("d ")</div>
+            </div>
+            <div class="details">
+                <span class="artist"> @g.Artist.Name 
+                @if (Model.ShowActivity)
+                {
+                    <button data-user-id="@g.ArtistId" class="btn btn-link btn-sm pull-right js-toggle-follow">Follow</button>
+                }
+                  
+                </span>
+                <span class="genre">@g.Genre.Name</span>
+                @if (Model.ShowActivity)
+                {
+                    <button data-gig-id="@g.Id" class="btn btn-default btn-sm pull-right js-toggle-attendence">Going?</button>
+                }
+                
+            </div>
+        </li>
+    }
+</ul>
+
+
+@section scripts
+{
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $(".js-toggle-attendence").click(function (e) {
+                var button = $(e.target);
+                $.post("/api/attendences", {GigId : button.attr("data-gig-id")})
+                    .done(function() {
+                        button.removeClass("btn-default").addClass("btn-info").text("Going");
+                    })
+                    .fail(function() {
+                        alert("something failed");
+                    });
+            });
+
+
+            $(".js-toggle-follow").click(function (e) {
+                var button = $(e.target);
+                $.post("/api/followings", { followerId: button.attr("data-user-id") })
+                    .done(function () {
+                        button.text("following");
+                    })
+                    .fail(function () {
+                        alert("something failed");
+                    });
+            });
+        });
+
+       
+    </script>
+}

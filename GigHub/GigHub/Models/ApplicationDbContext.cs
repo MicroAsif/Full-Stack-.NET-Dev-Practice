@@ -9,6 +9,8 @@ namespace GigHub.Models
         public DbSet<Genre> Genres { get; set; }
         public DbSet<Attendence> Attendences { get; set; }
 
+        public DbSet<Following> Followings { get; set; }
+
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
@@ -25,6 +27,16 @@ namespace GigHub.Models
                 .WithMany()
                 .WillCascadeOnDelete(false);
             base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<ApplicationUser>()
+                .HasMany(x=>x.Followees)
+                .WithRequired(x=>x.Follower)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<ApplicationUser>()
+                .HasMany(x => x.Followers)
+                .WithRequired(x => x.Followee)
+                .WillCascadeOnDelete(false);
         }
     }
 }
