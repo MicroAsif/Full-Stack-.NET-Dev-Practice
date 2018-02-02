@@ -19,9 +19,36 @@
                 </span>
                 <span class="genre">@g.Genre.Name</span>
                 <div class="actions">
-                    <a href="@Url.Action("Edit", "Gigs", new { gidId = g.Id})">Edit</a>
+                    <a href="@Url.Action("Edit", "Gigs", new { gidId = g.Id})">Edit</a> | 
+                    <a href="#" class="js-toggle-cancel" data-gig-id="@g.Id">Cancel</a>
                 </div>
             </div>
         </li>
     }
 </ul>
+
+@section scripts
+{ 
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".js-toggle-cancel").click(function (e) {
+                var link = $(e.target);
+                if (confirm("are you sure want to delete ?")) {
+                    $.ajax({
+                            url: '/api/gigs/' + link.attr("data-gig-id"),
+                            method: 'DELETE'
+
+                        })
+                        .done(function() {
+                            link.parents("li").fadeOut(function() {
+                                $(this).remove();
+                            });
+                        })
+                        .fail(function() {
+
+                        });
+                }
+            });
+        }); 
+    </script>
+}
