@@ -33,21 +33,40 @@
         $(document).ready(function () {
             $(".js-toggle-cancel").click(function (e) {
                 var link = $(e.target);
-                if (confirm("are you sure want to delete ?")) {
-                    $.ajax({
-                            url: '/api/gigs/' + link.attr("data-gig-id"),
-                            method: 'DELETE'
 
-                        })
-                        .done(function() {
-                            link.parents("li").fadeOut(function() {
-                                $(this).remove();
-                            });
-                        })
-                        .fail(function() {
 
-                        });
-                }
+                bootbox.dialog({
+                    title: 'Confirm',
+                    message: "<p>Are you sure want to cancel this Gig ? </p>",
+                    buttons: {
+                        No : {
+                            label: "No",
+                            className: 'btn-default',
+                            callback: function () {
+                                bootbox.hideAll();
+                            }
+                        },
+                        Yes : {
+                            label: "Yes ",
+                            className: 'btn-danger',
+                            callback: function () {
+                                $.ajax({
+                                        url: '/api/gigs/' + link.attr("data-gig-id"),
+                                        method: 'DELETE'
+                                    })
+                                    .done(function () {
+                                        link.parents("li").fadeOut(function () {
+                                            $(this).remove();
+                                        });
+                                    })
+                                    .fail(function () {
+                                        console.log("something failed");
+                                    });
+
+                            }
+                        }
+                    }
+                });
             });
         }); 
     </script>
