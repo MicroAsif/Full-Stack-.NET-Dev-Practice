@@ -27,6 +27,24 @@ namespace GigHub.Controllers.Api
                 return NotFound();
 
             gig.IsCancel = true;
+
+            var notification = new Notification
+            {
+                Gig = gig, 
+                Type = NotificationType.GigCanceled, 
+                DateTime = DateTime.Now
+            };
+            var attendees = _context.Attendences.Where(a => a.GigId == gig.Id).Select(x => x.Attendee).ToList();
+
+            foreach (var attendee in attendees)
+            {
+                var userNotification = new UserNotification
+                {
+                    User = attendee, 
+                    Notification = notification
+                };
+                _context.UserNotifications.Add(userNotification);
+            }
             _context.SaveChanges();
             return Ok();
         }
