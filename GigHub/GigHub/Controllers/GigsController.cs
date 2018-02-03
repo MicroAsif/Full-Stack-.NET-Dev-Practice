@@ -79,11 +79,9 @@ namespace GigHub.Controllers
             }
 
             var userId = User.Identity.GetUserId();
-            var gig = _context.Gigs.Single(x => x.Id == viewModel.Id && x.ArtistId == userId);
-            gig.Venue = viewModel.Venue;
-            gig.DateTime = viewModel.GetDateTime();
-            gig.GenreId = viewModel.Genre;
-          
+            var gig = _context.Gigs.Include(g => g.Attendences.Select(a => a.Attendee)).Single(x => x.Id == viewModel.Id && x.ArtistId == userId);
+
+            gig.Modify(viewModel.GetDateTime(), viewModel.Venue, viewModel.Genre);
 
             _context.SaveChanges();
             return RedirectToAction("Mine");

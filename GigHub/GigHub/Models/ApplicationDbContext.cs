@@ -25,8 +25,9 @@ namespace GigHub.Models
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Attendence>().HasRequired(x=>x.Gig)
-                .WithMany()
+            modelBuilder.Entity<Attendence>()
+                .HasRequired(x=>x.Gig)
+                .WithMany(a => a.Attendences)
                 .WillCascadeOnDelete(false);
             base.OnModelCreating(modelBuilder);
 
@@ -43,7 +44,7 @@ namespace GigHub.Models
 
             modelBuilder.Entity<UserNotification>()
                 .HasRequired(x=>x.User)
-                .WithMany()
+                .WithMany(u => u.UserNotifications)
                 .WillCascadeOnDelete(false);
         }
     }
