@@ -56,8 +56,6 @@ namespace GigHub.Models
             {
                attendee.Notify(notificaion);
             }
-
-
         }
     }
 }
