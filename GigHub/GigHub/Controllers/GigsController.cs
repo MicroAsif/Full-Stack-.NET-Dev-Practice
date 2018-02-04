@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using GigHub.Models;
 using GigHub.ViewModels;
 using Microsoft.AspNet.Identity;
+using WebGrease.Css.Ast.Selectors;
 
 namespace GigHub.Controllers
 {
@@ -87,6 +88,12 @@ namespace GigHub.Controllers
             return RedirectToAction("Mine");
         }
 
+
+        [HttpPost]
+        public ActionResult Search(GigsViewModel viewModel)
+        {
+            return RedirectToAction("index", "Home", new {query = viewModel.SearchTerm});
+        }
         public ActionResult Attending()
         {
             var userId = User.Identity.GetUserId();

@@ -46,6 +46,5 @@ namespace GigHub.ViewModels
                 return (action.Body as MethodCallExpression).Method.Name;       
             }
         }
-
     }
 }
