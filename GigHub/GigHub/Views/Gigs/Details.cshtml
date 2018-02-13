@@ -1,0 +1,16 @@
+﻿@model GigHub.ViewModels.GigDetailsViewModel
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>@Model.Gig.Artist.Name
+    @if (Model.IsFollowing)
+    {
+        <label class="label label-primary"> following</label>
+    }
+    </h2> 
+<p>Perfoming at @Model.Gig.Venue on @Model.Gig.DateTime.ToString("dd MMM") at @Model.Gig.DateTime.ToString("HH:mm")</p>
+
+@if (Model.IsAttending) { 
+    <p>You are going to this event.</p>
+}

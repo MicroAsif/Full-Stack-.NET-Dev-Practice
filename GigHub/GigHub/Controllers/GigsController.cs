@@ -100,11 +100,16 @@ namespace GigHub.Controllers
             var gigs = _context.Attendences.Where(x => x.AttendeeId == userId).Select(x => x.Gig)
                 .Include(x => x.Artist).Include(g => g.Genre).ToList();
 
+            var attendences = _context.Attendences.Where(x => x.AttendeeId == userId)
+                .ToList()
+                .ToLookup(a => a.GigId);
+
             var viewModel = new GigsViewModel
             {
                 UpcomingGigs = gigs,
                 ShowActivity = User.Identity.IsAuthenticated, 
-                Heading = "Gigs I'm Attending"
+                Heading = "Gigs I'm Attending", 
+                Attendences = attendences
             };
             return View("Gigs", viewModel);
         }
@@ -115,6 +120,26 @@ namespace GigHub.Controllers
             var mine = _context.Gigs.Where(x => x.ArtistId == userId && x.DateTime > DateTime.Now && !x.IsCancel).Include(x => x.Genre)
                 .ToList();
             return View(mine);
+        }
+
+        public ActionResult Details(int id)
+        {
+            var userId = User.Identity.GetUserId();
+            var gig = _context.Gigs.Include(x => x.Artist)
+                .Include(x => x.Genre)
+                .FirstOrDefault(x => x.Id == id);
+
+            var isAttending = _context.Attendences.Any(x => x.GigId == gig.Id && x.AttendeeId == userId);
+            var isFollowing = _context.Followings.Any(x => x.FollowerId == userId && x.FolloweeId == gig.ArtistId);
+
+            GigDetailsViewModel model = new GigDetailsViewModel
+            {
+                Gig =  gig, 
+                IsAttending = isAttending, 
+                IsFollowing = isFollowing
+            };
+           
+            return View(model);
         }
 
        

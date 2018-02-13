@@ -30,7 +30,7 @@
                 <div class="day"> @g.DateTime.ToString("d ")</div>
             </div>
             <div class="details">
-                <span class="artist"> @g.Artist.Name 
+                <span class="artist"> <a href="@Url.Action("details", "Gigs", new {id = g.Id})">@g.Artist.Name </a> 
                 @if (g.IsCancel)
                 {
                    <span class="label label-warning">canceled</span>
@@ -43,7 +43,7 @@
                 <span class="genre">@g.Genre.Name</span>
                 @if (Model.ShowActivity && !g.IsCancel)
                 {
-                    <button data-gig-id="@g.Id" class="btn btn-default btn-sm pull-right js-toggle-attendence">Going?</button>
+                    <button data-gig-id="@g.Id" class="btn @(Model.Attendences.Contains(g.Id) ? "btn-info" : "btn-default") btn-sm pull-right js-toggle-attendence">Going?</button>
                 }
                 
             </div>
