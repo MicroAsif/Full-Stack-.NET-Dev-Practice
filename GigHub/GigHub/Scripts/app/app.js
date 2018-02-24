@@ -1,4 +1,28 @@
-﻿var gigsController = function() {
+﻿var AttendenceService = function() {
+
+    var createAttendence = function(gigId, done, fail) {
+        $.post("/api/attendences", { GigId: gigId })
+            .done(done)
+            .fail(fail);
+
+    };
+    var deleteAttendence = function(gigId, done, fail) {
+        $.ajax({
+                url: "/api/attendences/" + gigId,
+                method: "DELETE"
+            })
+            .done(done)
+            .fail(fail);
+
+    }
+
+    return {
+        createAttendence: createAttendence,
+        deleteAttendence: deleteAttendence
+    }
+}();
+
+var gigsController = function (attendenceService) {
     var button;
     var init = function() {
         $(".js-toggle-attendence").click(toggleAttendence);
@@ -13,23 +37,19 @@
         button.toggleClass("btn-info").toggleClass("btn-default").text(text);
     };
 
+    
     var toggleAttendence = function(e) {
-         button = $(e.target);
-        if (button.hasClass("btn-default")) {
-            $.post("/api/attendences", { GigId: button.attr("data-gig-id") })
-                .done(done)
-                .fail(fail);
-        }
-        else {
-            $.ajax({
-                    url: "/api/attendences/" + button.attr("data-gig-id"),
-                    method: "DELETE"
-                }).done(done)
-                .fail(fail);
-        }
+        button = $(e.target);
+        gigId = button.attr("data-gig-id");
+        if (button.hasClass("btn-default"))
+            attendenceService.createAttendence(gigId, done, fail);
+        else
+            attendenceService.deleteAttendence(gigId, done, fail);
 
     };
+
+   
     return {
         init : init
     }
-}(); 
+}(AttendenceService);
