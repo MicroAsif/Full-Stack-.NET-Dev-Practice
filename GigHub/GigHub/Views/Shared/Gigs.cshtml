@@ -35,10 +35,6 @@
                 {
                    <span class="label label-warning">canceled</span>
                 }
-                @if (Model.ShowActivity)
-                {
-                    <button data-user-id="@g.ArtistId" class="btn btn-link btn-sm pull-right js-toggle-follow">Follow</button>
-                }
                 </span>
                 <span class="genre">@g.Genre.Name</span>
                 @if (Model.ShowActivity && !g.IsCancel)
@@ -57,16 +53,6 @@
     <script type="text/javascript">
         $(document).ready(function() {
             gigsController.init("#gigs");
-            $(".js-toggle-follow").click(function (e) {
-                var button = $(e.target);
-                $.post("/api/followings", { followerId: button.attr("data-user-id") })
-                    .done(function () {
-                        button.text("following");
-                    })
-                    .fail(function () {
-                        alert("something failed");
-                    });
-            });
         });
 
        
