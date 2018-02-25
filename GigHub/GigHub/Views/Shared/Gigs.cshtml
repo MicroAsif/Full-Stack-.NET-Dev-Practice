@@ -20,7 +20,7 @@
 
 
 
-<ul class="gigs voffset">
+<ul id="gigs" class="gigs voffset">
     @foreach (var g in Model.UpcomingGigs)
     {
         
@@ -56,8 +56,7 @@
 {
     <script type="text/javascript">
         $(document).ready(function() {
-
-            gigsController.init();
+            gigsController.init("#gigs");
             $(".js-toggle-follow").click(function (e) {
                 var button = $(e.target);
                 $.post("/api/followings", { followerId: button.attr("data-user-id") })
