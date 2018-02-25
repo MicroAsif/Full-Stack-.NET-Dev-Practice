@@ -17,18 +17,36 @@ namespace GigHub.Controllers.Api
         public IHttpActionResult Follow(FollowDto dto)
         {
             var userId = User.Identity.GetUserId();
-            var exists = _context.Followings.Any(x => x.FolloweeId == dto.FollowerId && x.FolloweeId == userId);
+            var exists = _context.Followings.Any(x => x.FollowerId == userId && x.FolloweeId == dto.FollowerId);
             if (exists)
                 return BadRequest("Already follwings");
 
             var following = new Following
             {
-                FolloweeId = userId, 
-                FollowerId = dto.FollowerId
+                FollowerId = userId,
+                FolloweeId = dto.FollowerId
             };
             _context.Followings.Add(following);
             _context.SaveChanges();
             return Ok();
+        }
+
+        [HttpDelete]
+        public IHttpActionResult Unfollow(string id)
+        {
+            var usedId = User.Identity.GetUserId();
+
+            var following = _context.Followings
+                .SingleOrDefault(f => f.FollowerId == usedId && f.FolloweeId == id);
+
+            if (following == null)
+                return NotFound();
+
+            _context.Followings.Remove(following);
+            _context.SaveChanges();
+
+            return Ok(id);
+
         }
 
 
