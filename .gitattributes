@@ -63,3 +63,4 @@
 #*.RTF   diff=astextplain
 *.sh text eol=lf
 GigHub/GigHub/Scripts/* linguist-vendored
+GigHub/GigHub/Scripts/app/* linguist-vendored

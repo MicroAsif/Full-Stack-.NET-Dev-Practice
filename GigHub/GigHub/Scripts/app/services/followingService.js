@@ -1,7 +1,7 @@
 ﻿var FollowingService = function() {
 
     var createFollowing = function (followeeId, done, fail) {
-        $.post("/api/followings", { followeeId: followeeId })
+        $.post("/api/followings", { FollowerId: followeeId })
             .done(done)
             .fail(fail);
 
